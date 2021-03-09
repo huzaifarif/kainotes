@@ -1,0 +1,22 @@
+{
+  "name": "kainotes",
+  "version": "1.0.0",
+  "description": "A no nonsense Note Taking app for KaiOS",
+  "main": "index.html",
+  "scripts": {
+    "start": "parcel index.html --out-dir build --open && cp ./manifest.webapp ./build/ && cp -r ./public/ ./build/",
+    "build": "parcel build index.html --out-dir build && cp ./manifest.webapp ./build/ && cp -r ./public/ ./build/"
+  },
+  "keywords": [
+    "KaiOS",
+    "Notes"
+  ],
+  "author": "Huzaifa Arif",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "7.2.0",
+    "parcel-bundler": "^1.6.1",
+    "kdeploy": "kaiostech/kdeploy"
+  },
+  "dependencies": {}
+}
