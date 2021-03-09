@@ -4,6 +4,7 @@ import * as Controllers from './controllers';
 const routes = {
   '/': { template: Template.listNote, controller: Controllers.listNote },
   '/new': { template: Template.createNote, controller: Controllers.createNote },
+  '/edit': { template: Template.createNote, controller: Controllers.createNote },
 };
 
 const getRouteContent = pathName => routes[pathName] ? routes[pathName].template : `<span>404 Not Found</span>`;

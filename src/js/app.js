@@ -41,11 +41,11 @@ const renderTemplate = (path = window.location.pathname) => {
   routes.getRouteController(path).renderCB();
 };
 
-window.onCustomNavigate = pathName => {
+window.onCustomNavigate = (pathName, qureyParams = '') => {
   window.history.pushState(
     {},
     pathName,
-    window.location.origin + pathName
+    window.location.origin + pathName + qureyParams,
   );
 
   renderTemplate(pathName);

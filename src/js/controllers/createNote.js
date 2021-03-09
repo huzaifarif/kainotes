@@ -1,6 +1,7 @@
 import Notes from '../notes';
 import Navigation from '../libs/navigation';
 
+let isEditMode = -1;
 const handleKeyDown = event => {
   switch (event.key) {
     case "Enter":
@@ -26,10 +27,22 @@ const handleKeyDown = event => {
 };
 
 const init = () => {
-  // Nothing to do here as of now
+  Notes.loadNotes();
 };
 
 const renderCB = () => {
+  const urlParams = new URLSearchParams(window.location.search);
+  const currIdx = parseInt(urlParams.get('idx'), 10);
+  if (currIdx > -1) {
+    const note = Notes.getNoteByIdx(currIdx);
+
+    document.getElementById('note-title').value = note.title;
+    document.getElementById('note-desc').value = note.desc;
+
+    isEditMode = currIdx;
+  } else {
+    isEditMode = -1;
+  }
   // select the first elem by default
   Navigation.selectdefault();
 };
@@ -40,7 +53,11 @@ const handleEnter = event => {
 
   if (!title && !desc) return;
 
-  Notes.addNote({ title, desc });
+  if (isEditMode === -1) {
+    Notes.addNote({ title, desc });
+  } else {
+    Notes.editNote(isEditMode, { title, desc });
+  }
   window.onCustomNavigate('/');
 };
 

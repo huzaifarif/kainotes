@@ -25,6 +25,13 @@ const deleteNote = idx => {
   return allNotes.length;
 };
 
+const editNote = (idx, note) => {
+  allNotes.splice(idx, 1, note);
+  localStorage.setItem('notes', JSON.stringify(allNotes));
+};
+
+const getNoteByIdx = idx => allNotes[idx];
+
 const renderNotes = () => {
   if (!allNotes.length) {
     const notes = document.getElementById("notes");
@@ -47,4 +54,4 @@ const loadNotes = () => {
     allNotes = JSON.parse(allNotesStr);
 };
 
-export default { renderNotes, addNote, loadNotes, deleteNote };
+export default { renderNotes, addNote, loadNotes, deleteNote, editNote, getNoteByIdx };

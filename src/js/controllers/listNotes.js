@@ -45,6 +45,7 @@ const handleSoftLeft = event => {
   if (!softKeysEnabled) return;
 
   const curIdx = Navigation.getTheIndexOfTheSelectedElement();
+  window.onCustomNavigate('/edit', `?idx=${curIdx}`);
 };
 
 const init = () => {
