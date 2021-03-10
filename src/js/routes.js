@@ -2,7 +2,7 @@ import * as Template from '../templates';
 import * as Controllers from './controllers';
 
 const routes = {
-  '/': { template: Template.listNote, controller: Controllers.listNote },
+  '/index.html': { template: Template.listNote, controller: Controllers.listNote },
   '/new': { template: Template.createNote, controller: Controllers.createNote },
   '/edit': { template: Template.createNote, controller: Controllers.createNote },
 };

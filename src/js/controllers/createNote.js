@@ -1,5 +1,6 @@
 import Notes from '../notes';
 import Navigation from '../libs/navigation';
+import LocationHelper from '../libs/location';
 
 let isEditMode = -1;
 const handleKeyDown = event => {
@@ -31,8 +32,8 @@ const init = () => {
 };
 
 const renderCB = () => {
-  const urlParams = new URLSearchParams(window.location.search);
-  const currIdx = parseInt(urlParams.get('idx'), 10);
+  const urlParams = window.location.search.substr(1); // Remove the '?'
+  const [, currIdx] = urlParams.split('=');
   if (currIdx > -1) {
     const note = Notes.getNoteByIdx(currIdx);
 
@@ -45,6 +46,8 @@ const renderCB = () => {
   }
   // select the first elem by default
   Navigation.selectdefault();
+  // Get the current location of the user
+  LocationHelper.getLocation(location => document.getElementById('note-location-label').textContent = location);
 };
 
 const handleEnter = event => {
@@ -58,7 +61,7 @@ const handleEnter = event => {
   } else {
     Notes.editNote(isEditMode, { title, desc });
   }
-  window.onCustomNavigate('/');
+  window.onCustomNavigate('/index.html');
 };
 
 const handleSoftRight = ({ target }) => {
@@ -67,7 +70,7 @@ const handleSoftRight = ({ target }) => {
 };
 
 const handleSoftLeft = event => {
-  window.onCustomNavigate('/');
+  window.onCustomNavigate('/index.html');
 };
 
 export default { handleKeyDown, init, renderCB };

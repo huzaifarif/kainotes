@@ -1,6 +1,5 @@
-import Softkey from './softkey';
-import Notes from './notes';
-import routes from './routes';
+import routes from './routes.js';
+import LocationHelper from './libs/location';
 
 // DOMContentLoaded is fired once the document has been loaded and parsed,
 // but without waiting for other external resources to load (css/images/etc)
@@ -16,6 +15,9 @@ window.addEventListener('DOMContentLoaded', () => {
   // We want to wait until the localisations library has loaded all the strings.
   // So we'll tell it to let us know once it's ready.
   // navigator.mozL10n.once(start);
+
+  // Init user Location on app start
+  LocationHelper.init();
 
   // Initialize the controller for the current route
   routes.getRouteController(window.location.pathname).init();

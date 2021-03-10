@@ -14,7 +14,14 @@
     "url": "https://huzaifa.dev"
   },
   "type": "privileged",
-  "permissions": {},
+  "permissions": {
+    "geolocation": {
+      "description": "Required for location tagging the user's notes"
+    },
+    "systemXHR": {
+      "description": "Required to get human readable location from coords"
+    }
+  },
   "installs_allowed_from": [
     "*"
   ],

@@ -38,6 +38,7 @@ const handleSoftRight = event => {
   const remainingNotes = Notes.deleteNote(curIdx);
   if (!remainingNotes) {
     disableSoftKeys();
+    Notes.renderNotes();
   }
 };
 
@@ -54,7 +55,6 @@ const init = () => {
 
 const renderCB = () => {
   const totalNotes = Notes.renderNotes();
-
   if (totalNotes) {
     // select the first elem by default
     Navigation.selectdefault();
@@ -63,15 +63,15 @@ const renderCB = () => {
 };
 
 const enableSoftKeys = () => {
-  document.getElementById("left").innerText = 'Edit';
-  document.getElementById("right").innerText = 'Delete';
+  document.getElementById("left").textContent  = 'Edit';
+  document.getElementById("right").textContent  = 'Delete';
 
   softKeysEnabled = true;
 };
 
 const disableSoftKeys = () => {
-  document.getElementById("left").innerText = '';
-  document.getElementById("right").innerText = '';
+  document.getElementById("left").textContent = '';
+  document.getElementById("right").textContent = '';
 
   softKeysEnabled = false;
 };
