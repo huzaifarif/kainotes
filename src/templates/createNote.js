@@ -10,7 +10,7 @@ const createNote = `
   <section id="softkey">
     <label id="left">Back</label>
     <label id="center">Save</label>
-    <label id="right">Delete</label>
+    <label id="right">Erase</label>
   </section>
 `;
 

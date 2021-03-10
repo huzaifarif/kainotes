@@ -9,11 +9,11 @@ const handleKeyDown = event => {
       handleEnter(event);
       break;
     case "SoftRight":
-    case "ArrowRight":
+    // case "ArrowRight":
       handleSoftRight(event);
       break;
     case "SoftLeft":
-    case "ArrowLeft":
+    // case "ArrowLeft":
       handleSoftLeft(event);
       break;
     case "ArrowDown":
@@ -21,6 +21,25 @@ const handleKeyDown = event => {
       break;
     case "ArrowUp":
       Navigation.Up(event);
+      break;
+    default:
+      break;
+  }
+};
+
+const handleClick = event => {
+  if (event.button) return; // Not handling anything other than left click ATM
+
+  const target = event.target.textContent;
+  switch (target) {
+    case "New":
+      handleEnter(event);
+      break;
+    case "Delete":
+      handleSoftRight(event);
+      break;
+    case "Edit":
+      handleSoftLeft(event);
       break;
     default:
       break;
@@ -76,4 +95,4 @@ const disableSoftKeys = () => {
   softKeysEnabled = false;
 };
 
-export default { handleKeyDown, init, renderCB };
+export default { handleKeyDown, handleClick, init, renderCB };

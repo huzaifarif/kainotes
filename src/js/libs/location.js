@@ -25,7 +25,7 @@ const LocationHelper = () => {
     if (isIpBased) {
       url = 'https://api.ipgeolocation.io/ipgeo?apiKey=4880135c7e29441299537c1bcaf9d1d6';
     } else {
-      url = `http://api.positionstack.com/v1/reverse?access_key=50b98a4cdc9f503d8783b85c645c6290&query=${pos.coords.latitude},${pos.coords.longitude}`;
+      url = `http://api.positionstack.com/v1/reverse?access_key=50b98a4cdc9f503d8783b85c645c6290&query=${position.coords.latitude},${position.coords.longitude}`;
     }
 
     callAPI(url, (err, data) => {

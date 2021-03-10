@@ -30,6 +30,13 @@ window.addEventListener('DOMContentLoaded', () => {
     controller.handleKeyDown(event);
   });
 
+  document.addEventListener("click", event => {
+    const controller = routes.getRouteController(window.location.pathname);
+    if (!controller) return; // TODO: Log an error or something
+
+    controller.handleClick(event);
+  });
+
 });
 
 window.onpopstate = () => {
