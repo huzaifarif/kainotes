@@ -1,3 +1,5 @@
+import '../css/notes.css';
+
 const listNotes = `
   <section id="notes" class="notes"></section>
   <section id="softkey">

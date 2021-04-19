@@ -1,3 +1,5 @@
+import '../css/input.css';
+
 const createNote = `
   <section id="new-note" class="new-note">
     <input type="text" id='note-title' nav-selectable="true" autofocus name="title" placeholder="Title" />

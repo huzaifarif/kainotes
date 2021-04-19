@@ -1,4 +1,4 @@
-import * as Template from '../templates';
+import * as Template from './templates';
 import * as Controllers from './controllers';
 
 const routes = {

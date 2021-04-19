@@ -1,5 +1,11 @@
+import "regenerator-runtime/runtime";
+
 import routes from './routes.js';
 import LocationHelper from './libs/location';
+
+import './css/app.css';
+import './css/header.css';
+import './css/softkey.css';
 
 // DOMContentLoaded is fired once the document has been loaded and parsed,
 // but without waiting for other external resources to load (css/images/etc)
